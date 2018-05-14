@@ -75,3 +75,46 @@ func OrmConn() *gorm.DB {
 		return c.String(http.StatusOK, "딜리트")
 	})
 ```
+
+- Model 태그 사용법 :
+
+```go
+type User struct {
+    gorm.Model
+    Birthday     time.Time
+    Age          int
+    Name         string  `gorm:"size:255"` // 사이즈를 255로 제한
+    Num          int     `gorm:"AUTO_INCREMENT"` //자동증가
+
+    CreditCard        CreditCard      // 1:1 관계
+    Emails            []Email         // 1:N관계
+    IgnoreMe          int `gorm:"-"`   // 이부분은무시
+    Languages         []Language `gorm:"many2many:user_languages;"` // N:M 관계 정의
+}
+
+type Email struct {
+    ID      int
+    UserID  int     `gorm:"index"` // 
+    Email   string  `gorm:"type:varchar(100);unique_index"` // unique 제한
+    Subscribed bool
+}
+
+type Address struct {
+    ID       int
+    Address1 string         `gorm:"not null;unique"` // not null과 Unique 설정
+    Address2 string         `gorm:"type:varchar(100);unique"`
+    Post     sql.NullString `gorm:"not null"`
+}
+
+type Language struct {
+    ID   int
+    Name string `gorm:"index:idx_name_code"` // Create index with name, and will create combined index if find other fields defined same name
+    Code string `gorm:"index:idx_name_code"` // `unique_index` also works
+}
+
+type CreditCard struct {
+    gorm.Model
+    UserID  uint
+    Number  string
+}
+```
