@@ -21,3 +21,10 @@ g.GET("/", func(c echo.Context) error { // /api/
 
 > 핸들러와 라우터를 이용해 구현
 
+```go
+h := func(c echo.Context) error {
+		return c.String(http.StatusOK,"OK")
+	}
+
+	e.GET("/handler",h)
+```
