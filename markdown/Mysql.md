@@ -69,8 +69,8 @@ import (
 	"fmt"
 )
 type testStruct struct { // DB 아키텍쳐 구조체
-	id int
-	name string
+	Id int          `json:"id"`
+	Name string     `json:"name"`
 }
 func DBConn() (db *sql.DB){ // DB 연결부
 	dbDriver := "mysql"

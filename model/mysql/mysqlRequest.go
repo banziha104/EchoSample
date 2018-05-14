@@ -4,12 +4,10 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"database/sql"
 	"github.com/labstack/gommon/log"
-	"fmt"
+	"EchoSample/model/schema"
+	"net/http"
 )
-type testStruct struct { // DB 아키텍쳐 구조체
-	id int
-	name string
-}
+
 func DBConn() (db *sql.DB){ // DB 연결부
 	dbDriver := "mysql"
 	dbUser := "root"
@@ -22,15 +20,15 @@ func DBConn() (db *sql.DB){ // DB 연결부
 	return db
 }
 
-func Read(db *sql.DB){
+func Read(db *sql.DB) schema.PaginationRespone {
 
 	rows, err := db.Query("SELECT * FROM echoTable") // 여러 행인 경우엔 Query를 이용
 	if err != nil{
 		log.Fatal("database error:" ,err)
 	}
 
-	results := []testStruct{} // 결과를 받을 구조체 생성
-	temp := testStruct{} // 임시 값을 담을 구조체 생성
+	results := []schema.TestStruct{} // 결과를 받을 구조체 생성
+	temp := schema.TestStruct{} // 임시 값을 담을 구조체 생성
 
 	for rows.Next() { // 결과 값 만큼실행
 		var id int
@@ -39,10 +37,11 @@ func Read(db *sql.DB){
 		if err != nil {
 			log.Fatal(err)
 		}
-		temp.id = id
-		temp.name = name
+		temp.Id = id
+		temp.Name = name
 		results =append(results,temp)
 	}
-	fmt.Println(results)
+
 	defer rows.Close() // Db를 닫음
+	return schema.PaginationRespone{http.StatusOK, len(results),results}
 }

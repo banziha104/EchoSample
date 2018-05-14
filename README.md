@@ -27,4 +27,8 @@ func main() {
 
 - ### [라우터](https://github.com/banziha104/EchoSample/blob/master/markdown/Mongodb.md)
 
-- ### [MongoDB 연동](https://github.com/banziha104/EchoSample/blob/master/markdown/Mongodb.md)
+- ### [Golang ORM](https://github.com/banziha104/EchoSample/blob/master/markdown/Gorm.md)
+
+- ### [Request](https://github.com/banziha104/EchoSample/blob/master/markdown/Request.md)
+
+- ### [Response](https://github.com/banziha104/EchoSample/blob/master/markdown/Response.md)

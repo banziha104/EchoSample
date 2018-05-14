@@ -6,11 +6,18 @@
 
 ### Group
 
+> 동일한 하이어라키를 그룹핑
+
 ```go
 
-g := e.Group("/api") // /api/ 에 옮
-g.GET("/", func(c echo.Context) error {
+g := e.Group("/api") // /api
+g.GET("/", func(c echo.Context) error { // /api/
     return c.String(http.StatusOK,"/api/getResponse")
 })
 
 ```
+
+### URI 빌딩
+
+> 핸들러와 라우터를 이용해 구현
+
