@@ -21,7 +21,7 @@ func ReadORMDataSnippet(c schema.ContentTable,db *gorm.DB){
 
 
 func UpdateORMDataSnippet(c schema.ContentTable,db *gorm.DB){
-	result := db.Model(&c).Updates(schema.ContentTable{Id:4})
+	result := db.Model(&c).Updates(schema.ContentTable{Id:4,Content:"13123"})
 	fmt.Println(result.Value)
 }
 
