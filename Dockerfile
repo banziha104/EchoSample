@@ -1,9 +1,10 @@
+#!/bin/bash
+
 FROM golang
 
-COPY ./app /go/src/github.com/user/myProject/app
-WORKDIR /go/src/github.com/user/myProject/app
+MAINTAINER Devign92 <banziha104@gmail.com>
 
-CMD go get ./...
-CMD go run server.go
 
-EXPOSE 8080
+ADD main /
+CMD ["/main"]
+EXPOSE 80
