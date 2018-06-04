@@ -72,13 +72,3 @@ func APIRouter(e *echo.Echo){
 		return c.String(http.StatusOK, "딜리트")
 	})
 }
-
-/***
-http://apis.data.go.kr/1192000/openapi/service/ManageAcst0400Service/getAcst0400List?
-serviceKey=i9opnT0CNWj0dfjeUmoProOy3c%2BqZNdfztvalVl624EISpMpkXLDvVzwuuA8n8BnYnMqOjKlZIoBQLm%2FpX%2Fyqg%3D%3D&
-numOfRows=10&
-pageSize=10&
-pageNo=1&
-startPage=1&
-fromDt=20151001&toDt=20151003
- */
