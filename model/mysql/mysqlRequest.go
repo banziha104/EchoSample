@@ -3,9 +3,9 @@ package mysql
 import (
 	_ "github.com/go-sql-driver/mysql"
 	"database/sql"
-	"github.com/labstack/gommon/log"
 	"EchoSample/model/schema"
 	"net/http"
+	"github.com/labstack/gommon/log"
 )
 
 func DBConn() (db *sql.DB){ // DB 연결부
