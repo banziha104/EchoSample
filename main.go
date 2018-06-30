@@ -7,8 +7,6 @@ import (
 
 func main() {
 	e := echo.New()
-
 	router.APIRouter(e)
-
 	e.Logger.Fatal(e.Start(":8081"))
 }
