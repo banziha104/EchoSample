@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/labstack/echo"
 	"EchoSample/router"
+	"github.com/labstack/echo"
 )
 
 func main() {
