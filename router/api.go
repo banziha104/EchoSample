@@ -71,4 +71,13 @@ func APIRouter(e *echo.Echo){
 		controller.DeleteORMDataSnippet(u,mysql.OrmConn())
 		return c.String(http.StatusOK, "딜리트")
 	})
+
+
+
+
+
+	/**
+	에러핸들링
+	 */
+
 }
