@@ -32,3 +32,5 @@ func main() {
 - ### [Request](https://github.com/banziha104/EchoSample/blob/master/markdown/Request.md)
 
 - ### [Response](https://github.com/banziha104/EchoSample/blob/master/markdown/Response.md)
+
+- ### [Error Handling](https://github.com/banziha104/EchoSample/blob/master/markdown/ErrorHandling.md)
